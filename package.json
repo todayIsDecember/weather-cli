@@ -1,0 +1,26 @@
+{
+  "name": "weather-cli",
+  "version": "1.0.0",
+  "private": false,
+  "description": "CLI for getting weather",
+  "main": "index.js",
+  "bin": "./index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "cli",
+    "weather"
+  ],
+  "author": "todayIsDecember",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/todayIsDecember/weather-cli.git"
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
