@@ -15,5 +15,6 @@ module.exports = {
     'import/prefer-default-export': 0,
     'import/extensions': 0,
     eqeqeq: 0,
+    'no-use-before-define': 0,
   },
 };

@@ -1,5 +1,5 @@
 {
-  "name": "weather-cli",
+  "name": "weather-cli-today-is",
   "version": "1.0.0",
   "private": false,
   "description": "CLI for getting weather",
@@ -19,7 +19,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/todayIsDecember/weather-cli.git"
+    "url": "git+https://github.com/todayIsDecember/weather-cli.git"
   },
   "devDependencies": {
     "eslint": "^8.21.0",
@@ -27,6 +27,12 @@
     "eslint-plugin-import": "^2.26.0"
   },
   "dependencies": {
-    "axios": "^0.27.2"
-  }
+    "axios": "^0.27.2",
+    "chalk": "^5.0.1",
+    "dedent": "^0.7.0"
+  },
+  "bugs": {
+    "url": "https://github.com/todayIsDecember/weather-cli/issues"
+  },
+  "homepage": "https://github.com/todayIsDecember/weather-cli#readme"
 }
