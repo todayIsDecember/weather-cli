@@ -21,4 +21,16 @@ const printHelp = () => {
   );
 };
 
-export { printError, printSuccess, printHelp };
+const printWeather = (res, icon) => {
+  console.log(
+    dedent`
+      ${chalk.bgWhite(" WEATHER ")} погода у місті ${res.name}
+      ${icon} ${res.weather[0].description}
+      Темпаратура: ${res.main.temp} (відчувається як ${res.main.feels_like})
+      Вологість: ${res.main.humidity}
+      Швидкість вітра: ${res.wind.speed}
+    `
+  );
+};
+
+export { printError, printSuccess, printHelp, printWeather };
