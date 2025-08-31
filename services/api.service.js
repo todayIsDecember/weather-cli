@@ -1,9 +1,44 @@
 import https from "https";
 import { getKeyValue, TOKEN_DICTIONARY } from "./storage.service.js";
 import axios from "axios";
+import { printError } from "./log.service.js";
 
-const getWeather = async (city) => {
-  const apiKey = await getKeyValue(TOKEN_DICTIONARY.token);
+const getIcon = (icon) => {
+  switch (icon.slice(0, -1)) {
+    case "01":
+      return "☀️";
+    case "02":
+      return "🌤️";
+    case "03":
+      return "☁️";
+    case "04":
+      return "☁️";
+    case "09":
+      return "🌧️";
+    case "10":
+      return "🌦️";
+    case "11":
+      return "🌩️";
+    case "13":
+      return "❄️";
+    case "50":
+      return "🌫️";
+  }
+};
+
+const getWeather = async () => {
+  const apiKey =
+    process.env.TOKEN ?? (await getKeyValue(TOKEN_DICTIONARY.token));
+  if (!apiKey) {
+    printError("Не переданий токен. Передайте його через команду -t [token]");
+    return;
+  }
+
+  const city = process.env.CITY ?? (await getKeyValue(TOKEN_DICTIONARY.city));
+  if (!city) {
+    printError("Не передане місто. Передайте його через команду -c [city]");
+    return;
+  }
   const { data } = await axios.get(
     "https://api.openweathermap.org/data/2.5/weather",
     {
@@ -16,7 +51,7 @@ const getWeather = async (city) => {
     }
   );
 
-  console.log(data);
+  return data;
 
   // const url = new URL("https://api.openweathermap.org/data/2.5/weather");
   // url.searchParams.append("q", city);
@@ -35,4 +70,4 @@ const getWeather = async (city) => {
   // });
 };
 
-export { getWeather };
+export { getWeather, getIcon };
